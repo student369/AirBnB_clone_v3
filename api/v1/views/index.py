@@ -22,6 +22,6 @@ def count():
           "reviews": None,
           "states": None,
           "users": None}
-    for k in keys:
-        st[k] = storage.count(k)
+    for k, y in zip(st.keys(), keys):
+        st[k] = storage.count(y)
     return jsonify(st)
