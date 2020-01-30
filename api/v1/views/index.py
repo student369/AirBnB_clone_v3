@@ -15,13 +15,11 @@ def status():
 @app_views.route('/stats')
 def count():
     """ count """
-    keys = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
-    st = {"amenities": None,
-          "cities": None,
-          "places": None,
-          "reviews": None,
-          "states": None,
-          "users": None}
-    for k, y in zip(st.keys(), keys):
-        st[k] = storage.count(y)
+    k = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
+    st = {"amenities": storage.count(k[0]),
+          "cities": storage.count(k[1]),
+          "places": storage.count(k[2]),
+          "reviews": storage.count(k[3]),
+          "states": storage.count(k[4]),
+          "users": storage.count(k[5])}
     return jsonify(st)
