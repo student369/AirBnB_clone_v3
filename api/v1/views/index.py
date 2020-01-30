@@ -2,7 +2,7 @@
 """ index """
 
 from api.v1.views import app_views
-from flask import jsonify
+from flask import jsonify, Blueprint
 from models import storage
 
 
@@ -10,3 +10,12 @@ from models import storage
 def status():
     """status"""
     return jsonify({'status': 'OK'})
+
+@app_views.route('/stats')
+def  count():
+    """ count """
+    keys = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
+    st = {}
+    for k in keys:
+        st[k] = storage.count("State")
+    return jsonify(st)
