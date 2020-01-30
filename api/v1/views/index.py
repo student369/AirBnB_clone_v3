@@ -15,7 +15,7 @@ def status():
 @app_views.route('/stats')
 def count():
     """ count """
-    k = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
+    k = ["Amenity", "City", "Place", "Review", "State", "User"]
     st = {"amenities": storage.count(k[0]),
           "cities": storage.count(k[1]),
           "places": storage.count(k[2]),
