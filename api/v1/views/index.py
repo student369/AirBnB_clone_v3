@@ -15,7 +15,13 @@ def status():
 def  count():
     """ count """
     keys = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
-    st = {}
-    for k in keys:
-        st[k] = storage.count(k)
+    st = {"amenities": storage.count("Amenity"),
+          "cities": storage.count("City"),
+          "places": storage.count("Place"),
+          "reviews": storage.count("Review"),
+          "states": storage.count("State"),
+          "users": storage.count("User")}
+
+#    for k in keys:
+ #       st[k] = storage.count(k)
     return jsonify(st)
