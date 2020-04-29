@@ -7,13 +7,13 @@ from os import environ
 
 app = Flask(__name__)
 app.register_blueprint(app_views, url_prefix="/api/v1")
-
 @app.teardown_appcontext
 def teardown_appcontext(error):
     """
         Close Error
     """
     storage.close()
+
 
 if __name__ == "__main__":
     host_d = environ.get('HBNB_API_HOST')
