@@ -74,7 +74,7 @@ class FileStorage:
            or None if not found"""
         objs = self.all(cls)
         for obj in objs.keys():
-            if obj == cls+"."+id:
+            if obj == "{}.{}".format(cls, id):
                 return objs[cls+"."+id]
         return(None)
 
