@@ -1,16 +1,16 @@
 #!/usr/bin/python3
-<<<<<<< HEAD
-""" index """
-
+""" Modules """
 from api.v1.views import app_views
-from flask import jsonify, Blueprint
+from flask import jsonify
 from models import storage
 
 
-@app_views.route('/status')
+@app_views.route('/status', methods=['GET'], strict_slashes=False)
 def status():
-    """status"""
-    return jsonify({'status': 'OK'})
+    """
+        Return JSON "status": "OK"
+    """
+    return jsonify({"status": "OK"})
 
 
 @app_views.route('/stats')
@@ -24,17 +24,3 @@ def count():
           "states": storage.count(k[4]),
           "users": storage.count(k[5])}
     return jsonify(st)
-=======
-""" Modules """
-from flask import jsonify
-from models import storage
-from api.v1.views import app_views
-
-
-@app_views.route('/status', methods=['GET'], strict_slashes=False)
-def status():
-    """
-        Return JSON "status": "OK"
-    """
-    return jsonify({"status": "OK"})
->>>>>>> 53b4c3511c83a85299b5ec04fd6ab247850ea70b
